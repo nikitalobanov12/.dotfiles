@@ -1,0 +1,9 @@
+# Ignore any system-specific files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Ignore any compiled configs or caches
+*.cache
+*.log
