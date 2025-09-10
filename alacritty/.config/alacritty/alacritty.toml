@@ -1,0 +1,61 @@
+# Alacritty configuration file
+# Location: ~/.config/alacritty/alacritty.toml (Linux/WSL)
+[font]
+
+size = 14
+normal = { family = "JetBrainsMonoNL Nerd Font" }
+bold = { family = "JetBrainsMonoNL Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMonoNL Nerd Font", style = "Italic" }
+
+[env]
+TERM = "xterm-256color"
+COLORTERM = "truecolor"
+
+[window]
+startup_mode = "Maximized"
+decorations = "full"
+padding = { x = 0, y = 0 }
+
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+history = 0
+
+# Gruvbox Dark colors
+[colors.primary]
+background = "#282828"
+foreground = "#EBDBB2"
+
+[colors.cursor]
+cursor = "#FFFFFF"
+
+[colors.normal]
+black = "#282828"
+red = "#CC241D"
+green = "#98971A"
+yellow = "#D79921"
+blue = "#458588"
+magenta = "#B16286"
+cyan = "#689D6A"
+white = "#A89984"
+
+[colors.bright]
+black = "#928374"
+red = "#FB4934"
+green = "#B8BB26"
+yellow = "#FABD2F"
+blue = "#83A598"
+magenta = "#D3869B"
+cyan = "#8EC07C"
+white = "#EBDBB2"
+
+[terminal.shell]
+program = "wsl.exe"
+args = ["-d", "Ubuntu", "--cd", "~"]
+
+[[keyboard.bindings]]
+key = "Back"
+mods = "Control"
+chars = "\u0017"
