@@ -9,6 +9,7 @@ return {
         enabled = false,
       },
       indent = { enabled = false },
+      dim = { enabled = true },
       dashboard = {
         preset = {
           header = [[

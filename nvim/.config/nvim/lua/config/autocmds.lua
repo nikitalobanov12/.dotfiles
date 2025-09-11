@@ -23,3 +23,18 @@ vim.api.nvim_create_autocmd("ModeChanged", {
   end,
   desc = "Maintain cursor shape on mode change",
 })
+
+-- Enable indent guides for Python files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.opt_local.list = true
+    vim.opt_local.listchars = {
+      tab = "│ ",
+      leadmultispace = "│" .. string.rep(" ", vim.bo.tabstop - 1),
+      multispace = "│" .. string.rep(" ", vim.bo.tabstop - 1),
+      trail = "·",
+    }
+  end,
+  desc = "Enable indent guides for Python files",
+})

@@ -73,10 +73,8 @@ export PATH="$HOME/.local/bin:$PATH"
 # ========================
 
 alias reload='source ~/.zshrc'
-alias vins='nvim'
-alias go-init='go-blueprint create --advanced'
-alias alacritty-settings='nvim /mnt/c/Users/Neoca/AppData/Roaming/alacritty/alacritty.toml'
-alias tmux-settings='nvim ~/.tmux.conf'
+alias python='python3'
+
 # nnn configuration
 export NNN_OPENER=nvim
 export NNN_PLUG='n:bulknew;o:fzopen'  # n=create files, o=fuzzy open
@@ -85,8 +83,6 @@ export NNN_FIFO=/tmp/nnn.fifo
 # Source the cd-on-quit function
 source /home/nikita/nnn-5.1/misc/quitcd/quitcd.bash_sh_zsh
 
-# Aliases for nnn
-alias nnn='nnn'   # -H=hidden files, -d=detail mode, -e=use editor
 
 # ========================
 # Misc
