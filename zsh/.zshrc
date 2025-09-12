@@ -74,11 +74,14 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias reload='source ~/.zshrc'
 alias python='python3'
+alias vim='nvim'
+alias apache ='apache2'
 
 # nnn configuration
 export NNN_OPENER=nvim
 export NNN_PLUG='n:bulknew;o:fzopen'  # n=create files, o=fuzzy open
 export NNN_FIFO=/tmp/nnn.fifo
+
 
 # Source the cd-on-quit function
 source /home/nikita/nnn-5.1/misc/quitcd/quitcd.bash_sh_zsh
