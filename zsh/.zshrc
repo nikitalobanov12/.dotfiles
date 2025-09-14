@@ -3,7 +3,7 @@
 # ========================
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="typewritten"
-plugins=(tmux aliases zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(tmux git aliases terraform docker zsh-autosuggestions zsh-syntax-highlighting )
 source $ZSH/oh-my-zsh.sh
 
 # Use typewritten prompt
@@ -75,7 +75,6 @@ export PATH="$HOME/.local/bin:$PATH"
 alias reload='source ~/.zshrc'
 alias python='python3'
 alias vim='nvim'
-alias apache ='apache2'
 
 # nnn configuration
 export NNN_OPENER=nvim
