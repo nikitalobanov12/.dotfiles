@@ -10,6 +10,7 @@ return {
       },
       indent = { enabled = false },
       dim = { enabled = true },
+      input = { enabled = true },
       dashboard = {
         preset = {
           header = [[
