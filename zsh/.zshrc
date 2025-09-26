@@ -75,6 +75,7 @@ export PATH="$HOME/.local/bin:$PATH"
 alias reload='source ~/.zshrc'
 alias python='python3'
 alias vim='nvim'
+alias cursor='cursor-agent'
 
 # nnn configuration
 export NNN_OPENER=nvim
@@ -83,7 +84,7 @@ export NNN_FIFO=/tmp/nnn.fifo
 
 
 # Source the cd-on-quit function
-source /home/nikita/nnn-5.1/misc/quitcd/quitcd.bash_sh_zsh
+# source /home/nikita/nnn-5.1/misc/quitcd/quitcd.bash_sh_zsh
 
 
 # ========================
@@ -98,19 +99,29 @@ export VISUAL=nvim
 
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-n() {
-    if [ "${NNNLVL:-0}" -ge 1 ]; then
+n ()
+{
+    # Block nesting of nnn in subshells
+    [ "${NNNLVL:-0}" -eq 0 ] || {
         echo "nnn is already running"
         return
-    fi
+    }
 
+    # The behaviour is set to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # If NNN_TMPFILE is set to a custom path, it must be exported for nnn to
+    # see. To cd on quit only on ^G, remove the "export" and make sure not to
+    # use a custom path, i.e. set NNN_TMPFILE *exactly* as follows:
+    #      NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
     export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
 
-    
-nn "$@"
+    # The command builtin allows one to alias nnn to n, if desired, without
+    # making an infinitely recursive alias
+    command nnn "$@"
 
-    if [ -f "$NNN_TMPFILE" ]; then
-            . "$NNN_TMPFILE"
-            rm -f "$NNN_TMPFILE" > /dev/null
-    fi
+    [ ! -f "$NNN_TMPFILE" ] || {
+        echo "nnn: Changing directory to $(cat "$NNN_TMPFILE" | cut -d'"' -f2)"
+        . "$NNN_TMPFILE"
+        rm -f -- "$NNN_TMPFILE" > /dev/null
+    }
 }
+export PATH="$HOME/.local/bin:$PATH"
