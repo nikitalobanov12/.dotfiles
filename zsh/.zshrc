@@ -71,6 +71,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # ========================
 # Aliases
 # ========================
+alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
 
 alias reload='source ~/.zshrc'
 alias python='python3'
@@ -125,3 +126,4 @@ n ()
     }
 }
 export PATH="$HOME/.local/bin:$PATH"
+eval "$(zoxide init zsh)"
